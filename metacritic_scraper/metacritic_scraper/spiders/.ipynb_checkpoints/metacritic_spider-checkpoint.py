@@ -19,10 +19,13 @@ scraping from https://www.metacritic.com/game/stardew-valley/
     
     response.css("div.c-reviewsSection_userReviews div.c-reviewsSection_carousel div.c-siteReviewScore.u-flexbox-column span::text").getall()
     ^gets the user numeric reviews
+    
+    [a.attrib['href'] for a in response.css("div.c-gamePlatformsSection_list.u-grid-columns a")]
+    ^gets list of platforms
 '''
 
-class MetacriticSpider(scrapy.Spider):
-    name = "metacritic_spider"
+class MetacriticSpider1(scrapy.Spider):
+    name = "metacritic_reviews"
 
     start_urls=["https://www.metacritic.com"]
 
@@ -50,3 +53,18 @@ class MetacriticSpider(scrapy.Spider):
         for j in range(len(user_comments)):
             yield {"Game" : game, "Comment" : user_comments[j], "Score" : user_scores[j], "Type" : "User"}
         
+class MetacriticSpider2(scrapy.Spider):
+    name = "metacritic_platforms"
+
+    start_urls=["https://www.metacritic.com"]
+    
+    def parse(self, response):
+        games = ["stardew-valley", "minecraft"]
+        for game in games:
+            yield scrapy.Request(f"https://www.metacritic.com/game/{game}/", callback = self.parse_platforms, cb_kwargs={"game" : game})
+            
+    def parse_platforms(self, response, game):
+        # List of available platforms
+        platforms = [a.attrib['href'].split('=')[-1] for a in response.css("div.c-gamePlatformsSection_list.u-grid-columns a")]
+        
+        yield {"Game" : game, "Platforms" : platforms}
