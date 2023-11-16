@@ -12,6 +12,18 @@ BOT_NAME = "metacritic_scraper"
 SPIDER_MODULES = ["metacritic_scraper.spiders"]
 NEWSPIDER_MODULE = "metacritic_scraper.spiders"
 
+# for Chrome driver 
+from shutil import which
+  
+SELENIUM_DRIVER_NAME = 'chrome'
+SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
+SELENIUM_DRIVER_ARGUMENTS=['--headless=new']  
+# SELENIUM_DRIVER_ARGUMENTS=[] 
+  
+DOWNLOADER_MIDDLEWARES = {
+     'scrapy_selenium.SeleniumMiddleware': 800
+     }
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "metacritic_scraper (+http://www.yourdomain.com)"

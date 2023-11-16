@@ -7,24 +7,25 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+BOT_NAME = "steam_scraper"
+
+SPIDER_MODULES = ["steam_scraper.spiders"]
+NEWSPIDER_MODULE = "steam_scraper.spiders"
 
 # for Chrome driver 
 from shutil import which
   
 SELENIUM_DRIVER_NAME = 'chrome'
 SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
-# SELENIUM_DRIVER_ARGUMENTS=['--headless=new']  
-SELENIUM_DRIVER_ARGUMENTS=[] 
+SELENIUM_DRIVER_ARGUMENTS=['--headless=new']  
+# SELENIUM_DRIVER_ARGUMENTS=[] 
   
 DOWNLOADER_MIDDLEWARES = {
      'scrapy_selenium.SeleniumMiddleware': 800
      }
 
 
-BOT_NAME = "steam_scraper"
 
-SPIDER_MODULES = ["steam_scraper.spiders"]
-NEWSPIDER_MODULE = "steam_scraper.spiders"
 
 # USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.123  Safari/537.36'
 
