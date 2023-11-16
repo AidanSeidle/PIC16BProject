@@ -34,7 +34,7 @@ class SteamSpider1(scrapy.Spider):
     
     # This is Selenium's replacement for Scrapy's start_urls = []
     def start_requests(self):
-        game = "MapleStory" # spaces in game name should be represented as "+"
+        game = "stardew+valley" # spaces in game name should be represented as "+"
         yield SeleniumRequest(url = f"https://store.steampowered.com/search/?term={game}", 
                               callback = self.search_bar,
                               wait_time = 10,
