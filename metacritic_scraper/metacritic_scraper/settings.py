@@ -25,6 +25,11 @@ DOWNLOADER_MIDDLEWARES = {
      }
 
 
+FEED_EXPORTERS = {
+    'csv': 'metacritic_scraper.exporters.HeadlessCsvItemExporter',
+}
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "metacritic_scraper (+http://www.yourdomain.com)"
 
