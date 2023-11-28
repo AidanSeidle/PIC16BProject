@@ -29,14 +29,11 @@ FEED_EXPORTERS = {
     'csv': 'steam_scraper.exporters.HeadlessCsvItemExporter',
 }
 
-# FEEDS = {
-#     'reviews.csv': {
-#         'format': 'csv',
-#         'item_export_kwargs': {
-#            'include_headers_line': False,
-#         },
-#     }
-# }
+FEEDS = {
+    'test.csv': {
+        'format': 'csv'
+    }
+}
 
 
 # USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.123  Safari/537.36'
