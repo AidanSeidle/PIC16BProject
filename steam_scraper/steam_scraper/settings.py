@@ -9,8 +9,8 @@
 
 BOT_NAME = "steam_scraper"
 
-SPIDER_MODULES = ["steam_scraper.spiders"]
-NEWSPIDER_MODULE = "steam_scraper.spiders"
+SPIDER_MODULES = ["steam_scraper.steam_scraper.spiders"] # changed so spider can be found from PIC16BProject folder
+NEWSPIDER_MODULE = "steam_scraper.steam_scraper.spiders" # changed so spider can be found from PIC16BProject folder
 
 # for Chrome driver 
 from shutil import which
@@ -26,11 +26,11 @@ DOWNLOADER_MIDDLEWARES = {
 
 
 FEED_EXPORTERS = {
-    'csv': 'steam_scraper.exporters.HeadlessCsvItemExporter',
+    'csv': 'steam_scraper.steam_scraper.exporters.HeadlessCsvItemExporter', # changed so spider can be found from PIC16BProject folder
 }
 
 FEEDS = {
-    'test.csv': {
+    'reviews.csv': {
         'format': 'csv'
     }
 }

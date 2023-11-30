@@ -69,7 +69,7 @@ class SteamSpider1(scrapy.Spider):
         driver = response.request.meta["driver"]
         
         # scroll down by 10000 pixels 10 times (increase range for more comments, ~10 reviews per scroll)
-        for x in range(0,10):
+        for x in range(0,20):
             ActionChains(driver) \
                 .scroll_by_amount(0, 10000) \
                 .perform()
