@@ -1,6 +1,7 @@
 # scrapy crawl steam_reviews -O results.csv
 
 import scrapy
+# from scrapy.utils.reactor import install_reactor
 from scrapy_selenium import SeleniumRequest
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -9,6 +10,7 @@ import time
 
 class SteamSpider1(scrapy.Spider):
     name = "steam_reviews"
+    # install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
     
     # This is Selenium's replacement for Scrapy's start_urls = []
     def start_requests(self):
