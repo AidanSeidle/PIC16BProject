@@ -1,27 +1,5 @@
 # scrapy crawl steam_reviews -O results.csv
 
-"""
-IMPORTANT
-
-This only works with Chrome browser
-
-Follow the below instructions to use Selenium with Scrapy
-instructions also found here with pictures: https://www.zenrows.com/blog/scrapy-selenium#install
-
-1. pip install scrapy_selenium
-    -this should also install selenium but if it doesnt: pip install selenium
-    
-2. pip install show
-    -in the output, find the "location: "
-    -for example: Location: /Users/nannan/opt/anaconda3/envs/PIC16B-2/lib/python3.11/site-packages
-    
-3. Follow the directory to the folder, then navigate into the folder called "scrapy_selenium"
-    -this folder should contain __pycache__, __init__.py, http.py, and middlwares.py
-    
-4. Replace the middlewares.py file with the middleware.py file that I placed in the "FOR SELENIUM" folder in the github.
-
-"""
-
 import scrapy
 from scrapy_selenium import SeleniumRequest
 from selenium.webdriver import ActionChains

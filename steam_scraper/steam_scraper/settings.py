@@ -30,7 +30,7 @@ FEED_EXPORTERS = {
 }
 
 FEEDS = {
-    'reviews.csv': {
+    'test_comments.csv': {
         'format': 'csv'
     }
 }

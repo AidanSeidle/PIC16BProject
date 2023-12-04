@@ -1,6 +1,6 @@
 # Video Game Review Bot
 
-This applictaion will analyze a video game for its best features so you can decide what to play next. Input the name of a game that can be found on Steam that you are thinking about buying and our app will analyze comments for what features players like best and which features they like least. 
+This applictaion will analyze a video game for its best features so you can decide what to play next. Input the name of a game you are thinking about buying and our app will analyze comments for what features players like best and which features they like least. 
 
 ## Setup
 
