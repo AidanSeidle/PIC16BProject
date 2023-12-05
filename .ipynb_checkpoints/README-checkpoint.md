@@ -1,6 +1,6 @@
-# Video Game Review Bot
+# Video Game Review App
 
-This applictaion will analyze a video game for its best features so you can decide what to play next. Input the name of a game you are thinking about buying and our app will analyze comments for what features players like best and which features they like least. 
+This applictaion will analyze a video game for its best features so you can decide what to play next. Input the name of a game that can be found on Steam that you are thinking about buying, and our app will analyze comments for what features players like best and which features they like least. 
 
 ## Setup
 
@@ -10,12 +10,13 @@ Necessary packages:
 1. numpy
 2. pandas
 3. matplotlib
-4. sklearn
-5. tensorflow
-6. nltk
-7. scrapy
-8. scrapy-selenium (FOLLOW BELOW INSTRUCTIONS)
-9. selenium
+4. flask
+5. sklearn
+6. tensorflow
+7. nltk
+8. scrapy
+9. scrapy-selenium (FOLLOW BELOW INSTRUCTIONS)
+10. selenium
 
 ## Setting up scrapy-selenium
 
@@ -33,3 +34,7 @@ instructions also found here with pictures: https://www.zenrows.com/blog/scrapy-
     -this folder should contain __pycache__, __init__.py, http.py, and middlwares.py
     
 4. Replace the middlewares.py file with the middleware.py file found in the "FOR SELENIUM" folder.
+
+## Running the App
+
+Open terminal. Navigate into the Flask folder using the `cd` command. Type `python hello.py` and copy the url into Chrome. Enter a video game into the textbox and then push "submit". The results page may take up to a minute to load. 
