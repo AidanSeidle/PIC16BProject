@@ -17,21 +17,22 @@ from shutil import which
   
 SELENIUM_DRIVER_NAME = 'chrome'
 SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
-# SELENIUM_DRIVER_ARGUMENTS=['--headless=new']  
-SELENIUM_DRIVER_ARGUMENTS=[] 
+SELENIUM_DRIVER_ARGUMENTS=['--headless=new']  
+# SELENIUM_DRIVER_ARGUMENTS=[] 
   
 DOWNLOADER_MIDDLEWARES = {
      'scrapy_selenium.SeleniumMiddleware': 800
      }
 
 
-FEED_EXPORTERS = {
-    'csv': 'steam_scraper.steam_scraper.exporters.HeadlessCsvItemExporter', # changed so spider can be found from PIC16BProject folder
-}
+# FEED_EXPORTERS = {
+#     'csv': 'steam_scraper.steam_scraper.exporters.HeadlessCsvItemExporter', # changed so spider can be found from PIC16BProject folder
+# }
 
 FEEDS = {
     'test_comments.csv': {
-        'format': 'csv'
+        'format': 'csv',
+        'overwrite': True
     }
 }
 
