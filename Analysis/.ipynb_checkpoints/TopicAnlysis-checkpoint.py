@@ -112,8 +112,7 @@ topicDict = {"Topic 4": "Animal/Pets/Friendships",
              "Topic 48": "Hunting/Fishing",
              "Topic 50": "Building"}
 
-for i in range(3):
-    print(topicDict[posTopicList[i]])
+positive_topics = [topicDict.get(posTopicList[i]) for i in range(min(3, len(posTopicList)))]
+negative_topics = [topicDict.get(negTopicList[i]) for i in range(min(3, len(negTopicList)))]
 
-for i in range(3):
-    print(topicDict[negTopicList[i]])
+return positive_topics, negative_topics
