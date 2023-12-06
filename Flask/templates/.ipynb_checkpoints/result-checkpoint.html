@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results for {{ game_name }}</title>
+    <!-- Include CSS and other head elements -->
+</head>
+<body>
+    <h1>Results for {{ game_name }}</h1>
+    <h2>Positive Topics</h2>
+    <ul>
+    {% for topic in positive_topics %}
+        <li>{{ topic }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Negative Topics</h2>
+    <ul>
+    {% for topic in negative_topics %}
+        <li>{{ topic }}</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

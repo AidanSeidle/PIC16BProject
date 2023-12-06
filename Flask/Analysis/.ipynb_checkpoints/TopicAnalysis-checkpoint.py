@@ -1,3 +1,5 @@
+
+import os
 import joblib # for importing model
 
 import numpy as np # data handling
@@ -112,7 +114,14 @@ topicDict = {"Topic 4": "Animal/Pets/Friendships",
              "Topic 48": "Hunting/Fishing",
              "Topic 50": "Building"}
 
-positive_topics = [topicDict.get(posTopicList[i]) for i in range(min(3, len(posTopicList)))]
-negative_topics = [topicDict.get(negTopicList[i]) for i in range(min(3, len(negTopicList)))]
+def analyze_topics():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(current_dir, "comment_topic_model.sav")
 
-return positive_topics, negative_topics
+    #Load the model
+    loaded_model = joblib.load(model_path)
+
+    positive_topics = [topicDict.get(posTopicList[i]) for i in range(min(3, len(posTopicList)))]
+    negative_topics = [topicDict.get(negTopicList[i]) for i in range(min(3, len(negTopicList)))]
+
+    return positive_topics, negative_topics
