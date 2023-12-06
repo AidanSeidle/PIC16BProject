@@ -1,6 +1,4 @@
 import joblib # for importing model
-from io import BytesIO
-import requests
 
 import numpy as np # data handling
 import pandas as pd # data handling
@@ -9,15 +7,11 @@ from sklearn.preprocessing import LabelEncoder # encode pos/neg sentiment
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def analyze_comments():
-    mLink = 'https://github.com/AidanSeidle/PIC16BProject/raw/main/Flask/Analysis/comment_topic_model.sav'
-    mfile = BytesIO(requests.get(mLink).content)
-    vLink = 'https://github.com/AidanSeidle/PIC16BProject.git/Flask/Analysis/comment_tfidf.sav'
-    vfile = BytesIO(requests.get(vLink).content)
-    loaded_model = joblib.load(open(mfile, 'rb'))
-    loaded_tfidf = joblib.load(open(vfile, 'rb'))
+    loaded_model = joblib.load(open('Analysis/comment_topic_model.sav', 'rb'))
+    loaded_tfidf = joblib.load(open('Analysis/comment_tfidf.sav', 'rb'))
     
     #input comments for model analysis
-    new_comments = pd.read_csv('PIC16BProject/Flask/results.csv')
+    new_comments = pd.read_csv('godfall.csv')
     new_comments['comment'] = new_comments['comment'].apply(lambda x: x[x.find('\n')+1:] if '\n' in x else x) # remove the date from the comment
     new_comments['comment'] = new_comments['comment'].apply(lambda x: x.replace('\n', ' ') if '\n' in x else x) # replace newlines with spaces so words aren't considered as word + \n
     new_comments = new_comments.drop(["game","hours_players"], axis=1)

@@ -22,7 +22,7 @@ def get_comments(game_name):
 def result(game_name):
     get_comments(game_name)
     positive_topics, negative_topics = analyze_comments()
-    return render_template('results.html', positive_topics=positive_topics, 
+    return render_template('result.html', positive_topics=positive_topics, 
                             negative_topics=negative_topics)
 
 if __name__ == '__main__':
