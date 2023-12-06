@@ -33,8 +33,8 @@ instructions also found here with pictures: https://www.zenrows.com/blog/scrapy-
 3. Follow the directory to the folder, then navigate into the folder called "scrapy_selenium"
     -this folder should contain __pycache__, __init__.py, http.py, and middlwares.py
     
-4. Replace the middlewares.py file with the middleware.py file found in the "FOR SELENIUM" folder.
+4. Replace the middlewares.py file with the middlewares.py file found in the "FOR SELENIUM" folder.
 
 ## Running the App
 
-Open terminal. Navigate into the Flask folder using the `cd` command. Type `python hello.py` and copy the url into Chrome. Enter a video game into the textbox and then push "submit". The results page may take up to a minute to load. 
+Open terminal. Navigate into the Flask folder using the `cd` command. Type `python hello.py` and copy the url into Chrome. Enter a video game into the textbox and then push "submit". The results page may take up to two minutes to load. 
