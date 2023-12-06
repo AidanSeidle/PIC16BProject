@@ -2,23 +2,25 @@
 <html>
 <head>
     <title>Results for {{ game_name }}</title>
-   
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h1>Results for {{ game_name }}</h1>
-    <h2>Positive Topics</h2>
-    <ul>
-    {% for topic in positive_topics %}
-        <li>{{ topic }}</li>
-    {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Results for {{ game_name }}</h1>
+        <h2>Positive Topics</h2>
+        <ul>
+        {% for topic in positive_topics %}
+            <li>{{ topic }}</li>
+        {% endfor %}
+        </ul>
 
-    <h2>Negative Topics</h2>
-    <ul>
-    {% for topic in negative_topics %}
-        <li>{{ topic }}</li>
-    {% endfor %}
-    </ul>
-
+        <h2>Negative Topics</h2>
+        <ul>
+        {% for topic in negative_topics %}
+            <li>{{ topic }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
