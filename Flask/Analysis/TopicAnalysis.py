@@ -11,7 +11,7 @@ def analyze_comments():
     loaded_tfidf = joblib.load(open('Analysis/comment_tfidf.sav', 'rb'))
     
     #input comments for model analysis
-    new_comments = pd.read_csv('undertale.csv')
+    new_comments = pd.read_csv('test_comments.csv')
     new_comments['comment'] = new_comments['comment'].apply(lambda x: x[x.find('\n')+1:] if '\n' in x else x) # remove the date from the comment
     new_comments['comment'] = new_comments['comment'].apply(lambda x: x.replace('\n', ' ') if '\n' in x else x) # replace newlines with spaces so words aren't considered as word + \n
     new_comments = new_comments.drop(["game","hours_players"], axis=1)
