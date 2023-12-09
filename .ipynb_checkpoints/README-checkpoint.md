@@ -4,7 +4,7 @@ This applictaion will analyze a video game for its best features so you can deci
 
 ## Setup
 
-This only works with Chrome browser
+This only works with Chrome browser.
 
 Necessary packages:
 1. numpy
@@ -20,9 +20,10 @@ Necessary packages:
 
 ## Setting up scrapy-selenium
 
-Follow the below instructions to use Selenium with Scrapy
+Follow the below instructions to use Selenium with Scrapy.
 instructions also found here with pictures: https://www.zenrows.com/blog/scrapy-selenium#install
 
+In terminal:
 1. pip install scrapy_selenium
     -this should also install selenium but if it doesnt: pip install selenium
     

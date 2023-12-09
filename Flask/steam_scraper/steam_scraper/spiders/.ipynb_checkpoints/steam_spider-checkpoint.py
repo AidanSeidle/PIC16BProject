@@ -1,7 +1,6 @@
 # scrapy crawl steam_reviews -O results.csv
 
 import scrapy
-# from scrapy.utils.reactor import install_reactor
 from scrapy_selenium import SeleniumRequest
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -10,11 +9,11 @@ import time
 
 class SteamSpider1(scrapy.Spider):
     name = "steam_reviews"
-    # install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
     
-    # This is Selenium's replacement for Scrapy's start_urls = []
     def start_requests(self):
-        # game = "MapleStory" # spaces in game name should be represented as "+"
+        """
+        Opens Chrome with the starting url. Searches the game name in the search bar of Steam store. 
+        """
         yield SeleniumRequest(url = f"https://store.steampowered.com/search/?term={self.game}", 
                               callback = self.search_bar,
                               wait_time = 10,
@@ -22,6 +21,9 @@ class SteamSpider1(scrapy.Spider):
                               cb_kwargs={"game" : self.game})
         
     def search_bar(self, response, game):
+        """
+        Gets and navigates to the url of the first result of the search results page.
+        """
         driver = response.request.meta["driver"]
         
         # get the first search result (assuming the most relevant will be the correct game; games must be on Steam)
@@ -32,6 +34,9 @@ class SteamSpider1(scrapy.Spider):
                               cb_kwargs={"game" : game})
         
     def view_all_comments(self, response, game):
+        """
+        Scrolls to the bottom of the page and "clicks" on the "view all reviews" button.
+        """
         driver = response.request.meta["driver"]
         
         for x in range(0,2):
@@ -46,6 +51,9 @@ class SteamSpider1(scrapy.Spider):
         yield SeleniumRequest(url = url, callback = self.parse, cb_kwargs={"game" : game})
     
     def parse(self, response, game):
+        """
+        Scrolls the page many times to load comments, then scrapes said comments.
+        """
         driver = response.request.meta["driver"]
         
         # scroll down by 10000 pixels 10 times (increase range for more comments, ~10 reviews per scroll)

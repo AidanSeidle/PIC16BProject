@@ -17,30 +17,15 @@ class Scraper:
         self.spider = SteamSpider1 # The spider you want to crawl
 
     def run_spiders(self, game):
+        """
+        Sets the Scrapy spider crawling for the specified game.
+        
+        Args: 
+            game (str): name of a video game on Steam
+        """
         # self.process.crawl(self.spider, game = game)
         # self.process.start()  # the script will block here until the crawling is finished
         d = self.runner.crawl(self.spider, game = game)
         d.addBoth(lambda _: reactor.stop())
         reactor.run()  # the script will block here until the crawling is finished
-
-
-
-
-
-
-# from scrapy.crawler import CrawlerProcess
-# from scrapy.utils.project import get_project_settings
-
-
-# def scrape(game):  
-#     process = CrawlerProcess(get_project_settings())
-#     process.crawl("steam_reviews", game = game)
-#     process.start()  # the script will block here until the crawling is finished
-    
-# game = "hidden+through+time"
-
-# scrape(game)
-
-
-
-
+        
